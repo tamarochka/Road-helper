@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'homes#index'
+  root 'locations#index'
   devise_for :users
   resources :locations
   # The priority is based upon order of creation: first created -> highest priority.

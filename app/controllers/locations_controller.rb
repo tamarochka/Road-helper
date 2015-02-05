@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   def index
     @locations = Location.all
   end
