@@ -1,0 +1,25 @@
+<%= form_for (@location) do |f| %>
+
+<div class="large-8 columns">
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :latitude %>
+    <%= f.text_field :latitude %>
+  </p>
+  <p>
+    <%= f.label :longitude %>
+    <%= f.text_field :longitude %>
+  </p>
+  <p>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </p>
+  <p><%= f.submit "Create location", :class=>"button small" %></p>
+<%end%>
