@@ -16,6 +16,10 @@ class LocationsController < ApplicationController
     end
   end
 
+  def show
+    @location = Location.find(params[:id])
+  end
+
   private
   def location_params
     params.require(:location).permit(:name, :address, :longtitude, :latitude, :notes)
