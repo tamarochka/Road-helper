@@ -1,0 +1,24 @@
+<%= form_for @pick_up do |f| %>
+<p>
+<%= f.label :location%>
+<%= f.collection_select(:location_id, Location.all, :id, :name)%>
+</p>
+
+<p>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+</p>
+
+<p>
+  <%= f.label :item %>
+  <%= f.text_field :item %>
+</p>
+
+<p>
+  <%= f.label :quantity %>
+  <%= f.select :quantity, (1..100),include_blank: true %>
+</p>
+
+<%= f.submit "Create Pick-up", :class => "button small"%>
+
+<%end%>
