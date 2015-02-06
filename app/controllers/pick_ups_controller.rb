@@ -2,7 +2,7 @@ class PickUpsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @pick_up = PickUp.all
+    @pick_ups = PickUp.all
   end
 
   def new

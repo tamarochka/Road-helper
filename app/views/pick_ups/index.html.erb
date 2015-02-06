@@ -1,0 +1,17 @@
+<h3>Pick-ups</h3>
+<table>
+  <tr>
+    <th>Location </th>
+    <th>Date</th>
+    <th>Item</th>
+    <th>Quantity</th>
+  </tr>
+
+  <% @pick_ups.each do |pick_up|%>
+  <tr>
+    <td><%= link_to pick_up.location.name, pick_up.location %></td>
+    <td><%= pick_up.date %></td>
+    <td><%= pick_up.item %></td>
+    <td><%= pick_up.quantity%></td>
+  </tr>
+  <%end%>
