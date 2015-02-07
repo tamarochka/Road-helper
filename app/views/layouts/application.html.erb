@@ -3,10 +3,11 @@
 <head>
   <title>RoadHelper</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -23,6 +24,24 @@
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
+      <ul class="left">
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">Locations</a>
+          <ul class="dropdown">
+            <li><%= link_to "All locations", locations_path %></li>
+            <li><%= link_to "New location", new_location_path %></li>
+          </ul>
+        </li>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">Pick-ups</a>
+          <ul class="dropdown">
+            <li><%= link_to "All Pick-ups", pick_ups_path %></li>
+            <li><%= link_to "New Pick-up", new_location_path %></li>
+          </ul>
+        </li>
+      </ul>
     </section>
   </nav>
 
@@ -33,13 +52,6 @@
   <%- end -%>
 
   <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_tag do %>
-    $(function(){
-      $(document).foundation();
-    });
-  <% end %>
   <%= yield :extra_footer %>
 </body>
 </html>
