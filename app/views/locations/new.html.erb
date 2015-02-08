@@ -1,3 +1,9 @@
+<% if @location.errors.any? %>
+  <% @location.errors.full_messages.each do |msg| %>
+    <%= msg %></br>
+  <% end %>
+<% end %>
+
 <%= form_for (@location) do |f| %>
 
 <div class="large-8 columns">

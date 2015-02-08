@@ -11,8 +11,10 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     @location.user = current_user
     if @location.save
+      flash[:notice]= "New location was successfully added!"
       redirect_to locations_path
     else
+      flash.now[:notice]="Location can't be added please check your address"
       render :new
     end
   end
