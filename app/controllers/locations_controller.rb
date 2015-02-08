@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
   end
   def new
     @location = Location.new
+    @button_name = "Create location"
   end
 
   def create
@@ -21,6 +22,29 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+  end
+
+  def edit
+    @location = Location.find(params[:id])
+    @button_name = "Update location"
+  end
+
+  def update
+    @location = Location.find(params[:id])
+    if @location.update(location_params)
+      flash[:notice] = "Location was updated successfully"
+      redirect_to locations_path
+    else
+      flash.now[:notice] = "Your updates can't be saved"
+      render :edit
+    end
+  end
+
+  def destroy
+    @location = Location.find(params[:id])
+    @location.destroy
+    flash[:notice] = "Location was deleted"
+    redirect_to locations_path
   end
 
   private

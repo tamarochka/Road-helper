@@ -1,5 +1,13 @@
-<ul>
-<%@locations.each do |location|%>
-  <li><%= link_to location.name, location %></li>
-</ul>
-<%end%>
+<table>
+  <tr>
+    <th>Location Name</th>
+    <th>Location Address</th>
+  </tr>
+  <%@locations.each do |location|%>
+  <tr>
+    <td><%= link_to location.name, location %></td>
+    <td><%= link_to location.address, location %></td>
+    <td><%= link_to "Update", edit_location_path(location)%></td>
+    <td><%= link_to "Delete", location, method: :delete, data: { confirm: "Are you sure you want to delete #{location.name} ?" }%></td>
+  </tr>
+    <%end%>
