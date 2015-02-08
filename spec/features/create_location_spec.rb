@@ -24,17 +24,18 @@ feature 'user creates location', %Q{
     expect(Location.count).to eq 1
   end
 
-  # scenario 'create with invalid address' do
-  #   visit new_location_path
-  #
-  #   fill_in 'Name', with: "New Location"
-  #   fill_in 'Address', with: "askjd"
-  #
-  #   click_button 'Create location'
-  #
-  #   expect(page).to have_content("Location can't be added please check your address")
-  #   expect(Location.count).to eq 0
-  # end
+  scenario 'create with invalid address' do
+    visit new_location_path
+
+    fill_in 'Name', with: "New Location"
+    fill_in 'Address', with: "askjd,jh,jkj"
+
+    click_button 'Create location'
+
+    expect(page).to have_content("Location can't be added please check your address")
+    expect(page).to have_content("Address is not valid")
+    expect(Location.count).to eq 0
+  end
 
   scenario 'create location with no data' do
     visit new_location_path
