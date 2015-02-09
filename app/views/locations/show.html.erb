@@ -6,4 +6,9 @@
   <li><%= @location.notes %></li>
 </ul>
 
+<% if @location.user == current_user %>
+<p><%= link_to "Update", edit_location_path(@location), :class => "button tiny"%>
+<%= link_to "Delete", @location, method: :delete, data: { confirm: "Are you sure you want to delete #{@location.name} ?"}, :class => "button tiny"%></p>
+<%end%>
+
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
