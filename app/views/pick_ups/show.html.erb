@@ -1,0 +1,6 @@
+<h3>Pick-up</h3>
+    <p>Location: <%= link_to @pick_up.location.name, @pick_up.location %></p>
+    <p>Date: <%= @pick_up.date %></p>
+    <p>Item: <%= @pick_up.item %></p>
+    <p>Quantity: <%= @pick_up.quantity%></p>
+    <p><%= link_to "Update", edit_pick_up_path(@pick_up)%>

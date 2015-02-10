@@ -14,4 +14,12 @@ FactoryGirl.define do
     user
   end
 
+  factory :pick_up do
+    location
+    item "new item"
+    quantity 5
+    date Date.today
+    user
+  end
+
 end

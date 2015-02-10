@@ -19,6 +19,25 @@ class PickUpsController < ApplicationController
     end
   end
 
+  def edit
+    @pick_up = PickUp.find(params[:id])
+  end
+
+  def update
+    @pick_up =PickUp.find(params[:id])
+    if @pick_up.update(pickup_params)
+      flash[:notice] ="PickUp was updated!"
+      redirect_to pick_up_path(@pick_up)
+    else
+      flash[:notice] ="PickUp couldn't be updated"
+      render :edit
+    end
+  end
+
+  def show
+    @pick_up = PickUp.find(params[:id])
+  end
+
   private
   def pickup_params
     params.require(:pick_up).permit(:location_id, :item, :date, :quantity)
