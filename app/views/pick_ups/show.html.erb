@@ -4,3 +4,4 @@
     <p>Item: <%= @pick_up.item %></p>
     <p>Quantity: <%= @pick_up.quantity%></p>
     <p><%= link_to "Update", edit_pick_up_path(@pick_up)%>
+      <%= link_to "Delete", @pick_up, method: :delete, data: {confirm:"Are you sure?"}, :class => "button small"%>

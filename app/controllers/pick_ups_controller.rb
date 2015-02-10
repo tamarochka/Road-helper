@@ -38,6 +38,13 @@ class PickUpsController < ApplicationController
     @pick_up = PickUp.find(params[:id])
   end
 
+  def destroy
+    @pick_up = PickUp.find(params[:id])
+    @pick_up.destroy
+    flash[:notice] ="Pick-up was successfully deleted!"
+    redirect_to pick_ups_path
+  end
+
   private
   def pickup_params
     params.require(:pick_up).permit(:location_id, :item, :date, :quantity)
