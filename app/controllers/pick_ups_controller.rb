@@ -3,6 +3,8 @@ class PickUpsController < ApplicationController
 
   def index
     @pick_ups = PickUp.all
+    @pickups_by_date = @pick_ups.group_by(&:date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def new
