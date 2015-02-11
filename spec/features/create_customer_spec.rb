@@ -18,7 +18,7 @@ feature 'user creates customer', %Q{
     fill_in 'Name', with: "New Customer"
     fill_in 'Address', with: "333 Washington St, Boston, MA"
 
-    click_button 'Create cutomer'
+    click_button 'Create customer'
 
     expect(page).to have_content('New customer was successfully added!')
     expect(Customer.count).to eq 1
