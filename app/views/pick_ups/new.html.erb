@@ -1,5 +1,9 @@
 <%= form_for @pick_up do |f| %>
 <p>
+  <%= f.label :customer%>
+  <%= f.collection_select(:customer_id, Customer.all, :id, :name)%>
+</p>
+<p>
 <%= f.label :location%>
 <%= f.collection_select(:location_id, Location.all, :id, :name)%>
 </p>

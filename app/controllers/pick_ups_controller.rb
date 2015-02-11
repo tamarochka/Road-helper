@@ -49,6 +49,6 @@ class PickUpsController < ApplicationController
 
   private
   def pickup_params
-    params.require(:pick_up).permit(:location_id, :item, :date, :quantity)
+    params.require(:pick_up).permit(:customer_id, :location_id, :item, :date, :quantity)
   end
 end

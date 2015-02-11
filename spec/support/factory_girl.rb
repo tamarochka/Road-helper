@@ -14,7 +14,14 @@ FactoryGirl.define do
     user
   end
 
+  factory :customer do
+    address "333 Washington st, Boston, MA"
+    name 'New Location'
+    user
+  end
+
   factory :pick_up do
+    customer
     location
     item "new item"
     quantity 5
