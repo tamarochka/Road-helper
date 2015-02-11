@@ -1,5 +1,6 @@
 class Customer < ActiveRecord::Base
   belongs_to :user
+  has_many :pick_ups
 
   validates :name, presence: true
   validates :address, presence: true
