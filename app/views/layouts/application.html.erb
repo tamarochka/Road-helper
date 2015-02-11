@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <nav class="top-bar">
+  <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
         <h1><a href="/">RoadHelper</a></h1>
@@ -40,7 +40,15 @@
           <a href="#">Pick-ups</a>
           <ul class="dropdown">
             <li><%= link_to "All Pick-ups", pick_ups_path %></li>
-            <li><%= link_to "New Pick-up", new_location_path %></li>
+            <li><%= link_to "New Pick-up", new_pick_up_path %></li>
+          </ul>
+        </li>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">Customers</a>
+          <ul class="dropdown">
+            <li><%= link_to "All Customers", customers_path %></li>
+            <li><%= link_to "New Customer", new_customer_path %></li>
           </ul>
         </li>
       </ul>
