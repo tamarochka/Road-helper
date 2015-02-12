@@ -1,10 +1,27 @@
 
 <% if !params[:select_date].nil? && !@pickups_by_date[@select_date].nil? %>
-  <ul>
-    <% @pickups_by_date[@select_date].each do |pick_up| %>
-    <li><%= link_to pick_up.location.name, pick_up %></li>
-    <% end %>
-  </ul>
+  <h3><%= @select_date.strftime("%A %B, %d :") %>
+  Pick-ups</h3>
+  <table>
+    <tr>
+      <th>Customer</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Item</th>
+      <th>Quantity</th>
+    </tr>
+      <% @pickups_by_date[@select_date].each do |pick_up| %>
+    <tr>
+      <td><%= link_to pick_up.customer.name, pick_up.customer %></td>
+      <td><%= link_to pick_up.location.name, pick_up.location %></td>
+      <td><%= pick_up.date %></td>
+      <td><%= pick_up.item %></td>
+      <td><%= pick_up.quantity%></td>
+    </tr>
+    <%end%>
+  </table>
+      <%= link_to "Add new pick-up", new_pick_up_path%><br/>
+      <%= link_to "Go Back", pick_ups_path%>
 <%else%>
   <div id="pickups">
     <h2 id="month">
