@@ -1,17 +1,26 @@
-<div id="pickups">
-  <h2 id="month">
-    <%= link_to "<", date: @date.prev_month %>
-    <%= @date.strftime("%B %Y") %>
-    <%= link_to ">", date: @date.next_month %>
-  </h2>
-  <%= calendar @date do |date| %>
-  <%= date.day %>
-  <% if @pickups_by_date[date] %>
+
+<% if !params[:select_date].nil? && !@pickups_by_date[@select_date].nil? %>
   <ul>
-    <% @pickups_by_date[date].each do |pick_up| %>
+    <% @pickups_by_date[@select_date].each do |pick_up| %>
     <li><%= link_to pick_up.location.name, pick_up %></li>
     <% end %>
   </ul>
-  <% end %>
-  <% end %>
-</div>
+<%else%>
+  <div id="pickups">
+    <h2 id="month">
+      <%= link_to "<", date: @date.prev_month %>
+      <%= @date.strftime("%B %Y") %>
+      <%= link_to ">", date: @date.next_month %>
+    </h2>
+      <%= calendar @date do |date| %>
+      <%= link_to date.day, select_date: date %>
+      <% if @pickups_by_date[date] %>
+      <ul>
+        <% @pickups_by_date[date].each do |pick_up| %>
+        <li><%= link_to pick_up.location.name, pick_up %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    <% end %>
+  </div>
+<%end%>

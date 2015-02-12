@@ -5,6 +5,7 @@ class PickUpsController < ApplicationController
     @pick_ups = PickUp.all
     @pickups_by_date = @pick_ups.group_by(&:date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @select_date = params[:select_date] ? Date.parse(params[:select_date]) : Date.today
   end
 
   def new
@@ -48,6 +49,7 @@ class PickUpsController < ApplicationController
   end
 
   private
+
   def pickup_params
     params.require(:pick_up).permit(:customer_id, :location_id, :item, :date, :quantity)
   end
