@@ -1,0 +1,11 @@
+<ul>
+  <li><%= @customer.name %></li>
+  <li><%= @customer.address %></li>
+</ul>
+
+<% if @customer.user == current_user %>
+<p><%= link_to "Update", edit_customer_path(@customer), :class => "button tiny"%>
+<%= link_to "Delete", @customer, method: :delete, data: { confirm: "Are you sure you want to delete #{@customer.name} ?"}, :class => "button tiny"%></p>
+<%end%>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@customer.latitude}%2C#{@customer.longitude}" %>
