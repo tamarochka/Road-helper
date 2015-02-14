@@ -6,6 +6,8 @@ class PickUpsController < ApplicationController
     @pickups_by_date = @pick_ups.group_by(&:date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @select_date = params[:select_date] ? Date.parse(params[:select_date]) : Date.today
+    @pickups_by_location = PickUp.where(:date => @select_date).group_by(&:location)
+
   end
 
   def new

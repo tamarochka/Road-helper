@@ -4,22 +4,24 @@
   Pick-ups</h3>
   <table>
     <tr>
+      <th>Locaion</th>
       <th>Customer</th>
-      <th>Location</th>
       <th>Date</th>
       <th>Item</th>
       <th>Quantity</th>
+    <% @pickups_by_location.each do |location, pickups| %>
     </tr>
-      <% @pickups_by_date[@select_date].each do |pick_up| %>
     <tr>
-      <td><%= link_to pick_up.customer.name, pick_up.customer %></td>
-      <td><%= link_to pick_up.location.name, pick_up.location %></td>
-      <td><%= pick_up.date %></td>
-      <td><%= pick_up.item %></td>
-      <td><%= pick_up.quantity%></td>
+    <td rowspan= "<%= pickups.length %>" ><%= location.name %></td>
+    <% pickups.each do |pickup| %>
+    <td><%= pickup.customer.name %></td>
+    <td><%= pickup.date %></td>
+    <td><%= pickup.item %></td>
+    <td><%= pickup.quantity %></td>
     </tr>
     <%end%>
-  </table>
+    <%end%>
+    </table>
       <%= link_to "Add new pick-up", new_pick_up_path%><br/>
       <%= link_to "Go Back", pick_ups_path%>
 <%else%>
