@@ -12,9 +12,9 @@
     <% @pickups_by_location.each do |location, pickups| %>
     </tr>
     <tr>
-    <td rowspan= "<%= pickups.length %>" ><%= location.name %></td>
+    <td rowspan= "<%= pickups.length %>" ><%= link_to location.name, location %></td>
     <% pickups.each do |pickup| %>
-    <td><%= pickup.customer.name %></td>
+    <td><%= link_to pickup.customer.name, pickup.customer %></td>
     <td><%= pickup.date %></td>
     <td><%= pickup.item %></td>
     <td><%= pickup.quantity %></td>
@@ -35,9 +35,7 @@
       <%= link_to date.day, select_date: date %>
       <% if @pickups_by_date[date] %>
       <ul>
-        <% @pickups_by_date[date].each do |pick_up| %>
-        <li><%= link_to pick_up.location.name, pick_up %></li>
-      <% end %>
+        <a href = "/pick_ups?select_date=<%= date%>">See <%=@pickups_by_date[date].length%> pickups </a>
     </ul>
     <% end %>
     <% end %>
