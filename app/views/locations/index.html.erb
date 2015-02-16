@@ -14,9 +14,9 @@
   </tr>
     <%end%>
 
-<h2>Import Products</h2>
+<h2>Import Locations</h2>
 
-<%= form_tag import_products_path, multipart: true do %>
+<%= form_tag import_locations_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>

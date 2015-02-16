@@ -48,7 +48,7 @@ class LocationsController < ApplicationController
   end
 
   def import
-    Location.import(params[:file])
+    Location.import(params[:file], current_user)
     redirect_to root_url, notice: "Locations imported."
   end
 

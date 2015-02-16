@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+
   belongs_to :user
   has_many :pick_ups
 
@@ -23,22 +24,23 @@ class Location < ActiveRecord::Base
     return true
   end
 
-  def self.import(file)
+  def self.import(file, current_user)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       location = find_by_id(row["id"]) || new
-      location.attributes = row.to_hash.slice(*accessible_attributes)
+      location.attributes = row.to_hash.slice(*row.to_hash.keys)
+      location.user = current_user
       location.save!
     end
   end
 
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)
-    when ".csv" then Csv.new(file.path, nil, :ignore)
-    when ".xls" then Excel.new(file.path, nil, :ignore)
-    when ".xlsx" then Excelx.new(file.path, nil, :ignore)
+    when ".csv" then Roo::Csv.new(file.path, nil, :ignore)
+    when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+    when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
     else raise "Unknown file type: #{file.original_filename}"
     end
   end

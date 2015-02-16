@@ -54,3 +54,4 @@ gem 'geocoder'
 gem 'jquery-ui-rails'
 gem "pry"
 gem 'roo'
+gem "iconv", "~> 1.0.3"
