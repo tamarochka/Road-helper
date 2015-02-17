@@ -1,6 +1,9 @@
 <% if @location.errors.any? %>
 <% @location.errors.full_messages.each do |msg| %>
-<%= msg %></br>
+<div data-alert class="alert-box alert radius">
+  <%= msg %></br>
+  <a href="#" class="close">&times;</a>
+</div>
 <% end %>
 <% end %>
 

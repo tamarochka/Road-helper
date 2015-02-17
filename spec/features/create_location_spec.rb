@@ -43,7 +43,8 @@ feature 'user creates location', %Q{
     click_button 'Create location'
 
     expect(page).to have_content("Location can't be added please check your address")
-    expect(page).to have_content("Name can't be blank Address can't be blank")
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Address can't be blank")
     expect(Location.count).to eq 0
   end
 

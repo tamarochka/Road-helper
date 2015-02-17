@@ -1,7 +1,10 @@
 <% if @pick_up.errors.any? %>
-<% @pick_up.errors.full_messages.each do |msg| %>
-<%= msg %></br>
-<% end %>
+  <% @pick_up.errors.full_messages.each do |msg| %>
+    <div data-alert class="alert-box alert radius">
+      <%= msg %></br>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% end %>
 <% end %>
 <%= form_for @pick_up do |f| %>
 <p>

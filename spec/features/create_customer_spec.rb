@@ -43,7 +43,8 @@ feature 'user creates customer', %Q{
     click_button 'Create customer'
 
     expect(page).to have_content("Customer can't be added please check your address")
-    expect(page).to have_content("Name can't be blank Address can't be blank")
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Address can't be blank")
     expect(Customer.count).to eq 0
   end
 
