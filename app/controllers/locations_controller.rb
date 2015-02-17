@@ -47,6 +47,11 @@ class LocationsController < ApplicationController
     redirect_to locations_path
   end
 
+  def import
+    Location.import(params[:file], current_user)
+    redirect_to root_url, notice: "Locations imported."
+  end
+
   private
   def location_params
     params.require(:location).permit(:name, :address, :longtitude, :latitude, :notes)

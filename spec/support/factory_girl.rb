@@ -16,7 +16,7 @@ FactoryGirl.define do
 
   factory :customer do
     address "333 Washington st, Boston, MA"
-    name 'New Customer'
+    name 'New Location'
     user
   end
 

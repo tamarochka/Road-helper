@@ -13,3 +13,10 @@
     <%end%>
   </tr>
     <%end%>
+
+<h2>Import Locations</h2>
+
+<%= form_tag import_locations_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
