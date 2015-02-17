@@ -1,3 +1,8 @@
+<% if @pick_up.errors.any? %>
+<% @pick_up.errors.full_messages.each do |msg| %>
+<%= msg %></br>
+<% end %>
+<% end %>
 <%= form_for @pick_up do |f| %>
 <p>
   <%= f.label :customer%>
