@@ -13,7 +13,9 @@
 //= require jquery
 //= require dataTables/jquery.dataTables
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables.foundation
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation();
+});

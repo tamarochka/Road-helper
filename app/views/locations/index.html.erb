@@ -1,22 +1,23 @@
-<table>
-  <tr>
+<table id ="locations">
+  <thead>
+    <tr>
     <th>Location Name</th>
     <th>Location Address</th>
   </tr>
+  </thead>
+  <tbody>
   <%@locations.each do |location|%>
   <tr>
     <td><%= link_to location.name, location %></td>
-    <td><%= link_to location.address, location %></td>
-    <% if location.user == current_user %>
-      <td><%= link_to "Update", edit_location_path(location)%></td>
-      <td><%= link_to "Delete", location, method: :delete, data: { confirm: "Are you sure you want to delete #{location.name} ?" }%></td>
-    <%end%>
+    <td><%= location.address %></td>
   </tr>
     <%end%>
+  </tbody>
+</table>
 
-<h2>Import Locations</h2>
+<h5>Import Locations</h5>
 
 <%= form_tag import_locations_path, multipart: true do %>
   <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+  <%= submit_tag "Import", class: "button tiny" %>
 <% end %>
