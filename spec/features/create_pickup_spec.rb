@@ -18,8 +18,8 @@ feature 'user creates pickup', %Q{
 
       visit new_pick_up_path
 
-      select 'New Location', from: "Location"
-      select 'New Customer', from: "Customer"
+      select 'New Location', from: "pick_up_location_id"
+      select 'New Customer', from: "pick_up_customer_id"
       fill_in "Item", with: "Item first"
       select "5", from: "Quantity"
 

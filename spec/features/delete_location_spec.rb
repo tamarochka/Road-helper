@@ -12,7 +12,7 @@ feature 'user deletes location', %Q{
     user = @location.user
     login_as(user)
 
-    visit locations_path
+    visit location_path(@location)
 
     click_on 'Delete'
 

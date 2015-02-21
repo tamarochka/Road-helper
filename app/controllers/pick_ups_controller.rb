@@ -18,6 +18,7 @@ class PickUpsController < ApplicationController
     @pick_up = PickUp.new(pickup_params)
     @pick_up.user = current_user
     if @pick_up.save
+      flash[:notice] ="New pick-up was successfully added!"
       redirect_to pick_ups_path
     else
       render :new
