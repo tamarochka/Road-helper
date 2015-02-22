@@ -1,2 +1,0 @@
-jQuery ->
-$('#locations').dataTable()
