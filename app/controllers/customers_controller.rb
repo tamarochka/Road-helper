@@ -3,6 +3,23 @@ class CustomersController < ApplicationController
 
   def index
     @customers = Customer.all
+    @geojson = Array.new
+    @customers.each do |customer|
+      @geojson << {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [customer.longitude, customer.latitude]
+        },
+        properties: {
+          name: customer.name,
+          address: customer.street,
+          :'marker-color' => 'red',
+          :'marker-symbol' => 'circle',
+          :'marker-size' => 'medium'
+        }
+      }
+    end
   end
 
   def new
